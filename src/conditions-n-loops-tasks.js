@@ -88,9 +88,19 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  const vector = { x: queen.x - king.x, y: queen.y - king.y };
+  if (queen.x === king.x || queen.y === king.y) {
+    return true;
+  }
+
+  if (Math.abs(vector.x) === Math.abs(vector.y)) {
+    return true;
+  }
+  return false;
 }
+
+canQueenCaptureKing({ x: 2, y: 1 }, { x: 2, y: 8 });
 
 /**
  * Determines whether a triangle is isosceles based on its side lengths.
