@@ -248,8 +248,6 @@ function convertNumberToString(numberStr) {
   return number;
 }
 
-convertNumberToString('10');
-
 /**
  * Determines whether a string is a palindrome.
  * In this task, the use of methods of the String and Array classes is not allowed.
@@ -310,10 +308,18 @@ function getIndexOf(str, letter) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let number = num;
+  while (number !== 0) {
+    if (number % 10 === digit) {
+      return true;
+    }
+    number = Math.trunc((number /= 10));
+  }
+  return false;
 }
 
+isContainNumber(123450, 1);
 /**
  * Finds the index of an element in an array where the sum of elements to the left equals the sum of elements to the right.
  * If such an index does not return -1.
