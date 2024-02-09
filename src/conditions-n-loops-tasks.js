@@ -21,8 +21,11 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  if (number >= 0) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -38,8 +41,33 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  if (a > b && a > c) {
+    return a;
+  }
+  if (c > b && c > a) {
+    return c;
+  }
+  if (b > a && b > c) {
+    return b;
+  }
+  if ((a === b || b === a) && (b > c || a > c)) {
+    return b;
+  }
+
+  if ((a === c || c === a) && (a > b || c > b)) {
+    return a;
+  }
+
+  if ((b === c || c === b) && (c > a || b > a)) {
+    return c;
+  }
+
+  if (a === b && b === c) {
+    return a;
+  }
+
+  return null;
 }
 
 /**
@@ -82,10 +110,20 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a !== 0 && b !== 0 && c !== 0) {
+    if ((a === b || b === a) && a + b >= c) {
+      return true;
+    }
+    if ((a === c || c === a) && a + c >= b) {
+      return true;
+    }
+    if ((b === c || c === b) && b + c >= a) {
+      return true;
+    }
+  }
+  return false;
 }
-
 /**
  * Converts a number to Roman numerals. The number will be between 1 and 39.
  * In this task, the use of methods of the String and Array classes is not allowed.
