@@ -319,7 +319,6 @@ function isContainNumber(num, digit) {
   return false;
 }
 
-isContainNumber(123450, 1);
 /**
  * Finds the index of an element in an array where the sum of elements to the left equals the sum of elements to the right.
  * If such an index does not return -1.
@@ -333,10 +332,25 @@ isContainNumber(123450, 1);
  *  [2, 3, 9, 5] => 2       => 2 + 3 === 5 then balance element is 9 and its index = 2
  *  [1, 2, 3, 4, 5] => -1   => no balance element
  */
-function getBalanceIndex(/* arr */) {
-  throw new Error('Not implemented');
-}
+function getBalanceIndex(arr) {
+  for (let i = 0; i < arr.length; i += 1) {
+    let leftSum = 0;
+    let rightSum = 0;
+    for (let j = 0; j < i; j += 1) {
+      leftSum += arr[j];
+    }
 
+    for (let k = arr.length - 1; k > i; k -= 1) {
+      rightSum += arr[k];
+    }
+
+    if (rightSum === leftSum) {
+      return i;
+    }
+  }
+  return -1;
+}
+getBalanceIndex([1, 2, 5, 3, 0]);
 /**
  * Generates a spiral matrix of a given size, filled with numbers in ascending order starting from one.
  * The direction of filling with numbers is clockwise.
@@ -360,6 +374,7 @@ function getBalanceIndex(/* arr */) {
  */
 function getSpiralMatrix(/* size */) {
   throw new Error('Not implemented');
+  // for (let i = 0; i < size; i++) {}
 }
 
 /**
